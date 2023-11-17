@@ -1,0 +1,110 @@
+[
+    {
+    "name": "Lengkuas",
+    "price":"22.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Jahe",
+    "price":"12.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Kapulaga",
+    "price":"14.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Cengkeh",
+    "price":"17.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Kunyit",
+    "price":"20.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Pala",
+    "price":"18.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Ketumbar",
+    "price":"13.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Kapulaga",
+    "price":"13.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Jahe",
+    "price":"20.000",
+    "unit":"kg",
+    "date":"2023-11-02"
+    },
+    {
+    "name": "Lengkuas",
+    "price":"22.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Jahe",
+    "price":"12.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Kapulaga",
+    "price":"20.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Cengkeh",
+    "price":"12.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Kunyit",
+    "price":"18.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Pala",
+    "price":"19.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Ketumbar",
+    "price":"17.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Kapulaga",
+    "price":"15.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    },
+    {
+    "name": "Jahe",
+    "price":"21.000",
+    "unit":"kg",
+    "date":"2023-11-03"
+    }
+]

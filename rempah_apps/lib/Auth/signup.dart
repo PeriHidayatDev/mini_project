@@ -21,7 +21,6 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //Singlechildscrolview to have an scroll in the screen
       body: Center(
         child: SingleChildScrollView(
           child: Form(
@@ -31,7 +30,6 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //we will copy the previous textfield
                   const ListTile(
                     title: Text(
                       "Register New Account",
@@ -39,8 +37,6 @@ class _SignUpState extends State<SignUp> {
                           TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                     ),
                   ),
-
-                  //As we assigned our controller to the textformfield
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
@@ -63,8 +59,6 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-
-                  //Password field
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
@@ -87,9 +81,7 @@ class _SignUpState extends State<SignUp> {
                           hintText: "Password",
                           suffixIcon: IconButton(
                               onPressed: () {
-                                //in here we will create a clik to show and hide the password a toggle button
                                 setState(() {
-                                  //toggle button
                                   isVisible = !isVisible;
                                 });
                               },
@@ -98,8 +90,6 @@ class _SignUpState extends State<SignUp> {
                                   : Icons.visibility_off))),
                     ),
                   ),
-                  //confirm password field
-                  //now we check whether password matches or not
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
@@ -124,9 +114,7 @@ class _SignUpState extends State<SignUp> {
                           hintText: "Password",
                           suffixIcon: IconButton(
                               onPressed: () {
-                                //in here we will create a clik to show and hide the password a toggle button
                                 setState(() {
-                                  //toggle button
                                   isVisible = !isVisible;
                                 });
                               },
@@ -138,8 +126,6 @@ class _SignUpState extends State<SignUp> {
                   const SizedBox(
                     height: 10,
                   ),
-
-                  //Login Button
                   Container(
                     height: 55,
                     width: MediaQuery.of(context).size.width * .9,
@@ -149,14 +135,12 @@ class _SignUpState extends State<SignUp> {
                     child: TextButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          //Login method will be here
                           final db = DatabaseHelper();
                           db
                               .signup(Users(
                                   usrName: username.text,
                                   usrPassword: password.text))
                               .whenComplete(() {
-                            //After successful user create go to login loginscreen
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -178,7 +162,6 @@ class _SignUpState extends State<SignUp> {
                       const Text("Already have an account?"),
                       TextButton(
                         onPressed: () {
-                          //Navigate to sign up
                           Navigator.push(
                               context,
                               MaterialPageRoute(

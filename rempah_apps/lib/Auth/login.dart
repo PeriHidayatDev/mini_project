@@ -12,38 +12,36 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // We need two text editing controller
-
-  //Text editing controller to control the text when we enter into it
   final username = TextEditingController();
   final password = TextEditingController();
 
-  //A bool variable for show and hide password
   bool isVisible = false;
 
-  //here is our bool variable
   bool isLoginTrue = false;
 
   final db = DatabaseHelper();
 
-  //now we should call this function in login button
   login() async {
     var response = await db
         .login(Users(usrName: username.text, usrPassword: password.text));
     if (response == true) {
-      //if login is correct then go to homepage
-      if (!mounted) return;
+      // Menyimpan username yang berhasil login dalam variabel
+      String loggedInUsername = username.text;
+
+      // Menavigasi ke halaman home page dan menyertakan username
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomePage()));
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(username: loggedInUsername),
+        ),
+      );
     } else {
-      //if not, true the bool value to show error message
       setState(() {
         isLoginTrue = true;
       });
     }
   }
 
-  //We have to create global key for our form
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -52,15 +50,10 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
-
-            //We put all out textfields to a form to be controlled
             child: Form(
               key: formKey,
               child: Column(
                 children: [
-                  //Username field
-
-                  //image logo
                   Image.asset(
                     "assets/login.png",
                     width: 310,
@@ -87,8 +80,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-
-                  //Password field
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
@@ -111,9 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintText: "Password",
                           suffixIcon: IconButton(
                               onPressed: () {
-                                //in here we will create a clik to show and hide the password a toggle button
                                 setState(() {
-                                  //toggle button
                                   isVisible = !isVisible;
                                 });
                               },
@@ -125,8 +114,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-
-                  //Login Button
                   Container(
                     height: 55,
                     width: MediaQuery.of(context).size.width * .9,
@@ -136,11 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          //Login method will be here
                           login();
-
-                          //now we have a response from our sqlite method
-                          //we are going to create a user
                         }
                       },
                       child: const Text(
@@ -155,7 +138,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       const Text("Don't have an account?"),
                       TextButton(
                         onPressed: () {
-                          //Navigate to sign up
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -168,14 +150,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-
-                  // we will disable this massage user and pass incorrect
                   isLoginTrue
                       ? const Text(
                           "Username or password is incorrect",
                           style: TextStyle(color: Colors.red),
                         )
-                      : const SizedBox(),
+                      : isLoginTrue
+                          ? const Text(
+                              "Login sukses",
+                              style: TextStyle(color: Colors.orange),
+                            )
+                          : const SizedBox(),
                 ],
               ),
             ),
